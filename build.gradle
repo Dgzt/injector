@@ -1,0 +1,71 @@
+buildscript {
+    
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        maven { url "https://jitpack.io" }
+        jcenter()
+        google()
+    }
+    dependencies {
+
+    }
+}
+
+allprojects {
+
+    group = 'com.dgzt'
+    version = '1.0.0-SNAPSHOT'
+
+    ext {
+        appName = "injector"
+        gdxVersion = '1.9.10'
+    }
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+        google()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        maven { url "https://oss.sonatype.org/content/repositories/releases/" }
+    }
+}
+
+project(":injector") {
+    apply plugin: "java-library"
+    apply plugin: 'maven'
+
+    dependencies {
+        api "com.badlogicgames.gdx:gdx:$gdxVersion"
+    }
+
+    task sourcesJar(type: Jar, dependsOn: classes) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+    }
+
+    task javadocJar(type: Jar, dependsOn: javadoc) {
+        classifier = 'javadoc'
+        from javadoc.destinationDir
+    }
+
+    artifacts {
+        archives sourcesJar
+        archives javadocJar
+    }
+}
+
+//project(":test") {
+//    apply plugin: "java-library"
+//
+//    dependencies {
+//        implementation project(":drawer")
+//        api "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
+//        api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+//
+//    }
+//}
