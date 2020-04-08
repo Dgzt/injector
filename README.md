@@ -8,8 +8,20 @@ Injector is a dependency injector what injects objects at runtime, uses reflecti
 
 ## Usage
 
+Inject object:
+
 ```java
 YourComponent component = Injector.get(YourComponent.class);
+```
+
+Dispose injector in your main dispose method:
+
+```java
+@Override
+public void dispose () {
+    ...
+    Injector.dispose();
+}
 ```
 
 ---
