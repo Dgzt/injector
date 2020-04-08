@@ -23,4 +23,13 @@ public class NewInstanceCreateException extends RuntimeException {
     public NewInstanceCreateException(final Throwable cause) {
         super(cause);
     }
+
+    /**
+     * The constructor.
+     *
+     * @param text The error text.
+     */
+    public NewInstanceCreateException(final String text) {
+        super(text);
+    }
 }

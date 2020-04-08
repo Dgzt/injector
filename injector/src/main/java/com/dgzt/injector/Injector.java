@@ -1,6 +1,5 @@
 package com.dgzt.injector;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.badlogic.gdx.utils.reflect.ClassReflection;
@@ -79,17 +78,21 @@ public class Injector {
 
         try {
             final Constructor[] constructors = ClassReflection.getConstructors(clazz);
-            final Constructor constructor = constructors[0];
-            final Class<?>[] parameterTypes = constructor.getParameterTypes();
 
-            final Object[] parameters = new Object[parameterTypes.length];
-            for (int i = 0; i < parameterTypes.length; ++i) {
-                parameters[i] = get(parameterTypes[i]);
+            if (constructors.length >= 1) {
+                final Constructor constructor = constructors[0];
+                final Class<?>[] parameterTypes = constructor.getParameterTypes();
+
+                final Object[] parameters = new Object[parameterTypes.length];
+                for (int i = 0; i < parameterTypes.length; ++i) {
+                    parameters[i] = get(parameterTypes[i]);
+                }
+
+                instance.objects.put(clazz, constructor.newInstance(parameters));
+            } else {
+                throw new NewInstanceCreateException("The '" + clazz.getName() + "' has not constructor!");
             }
-
-            instance.objects.put(clazz, constructor.newInstance(parameters));
         } catch (final ReflectionException e) {
-            Gdx.app.error("", "Could not create new instance! ", e);
             throw new NewInstanceCreateException(e);
         }
     }
