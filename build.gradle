@@ -1,5 +1,5 @@
 buildscript {
-    
+
 
     repositories {
         mavenLocal()
@@ -59,13 +59,13 @@ project(":injector") {
     }
 }
 
-//project(":test") {
-//    apply plugin: "java-library"
-//
-//    dependencies {
-//        implementation project(":drawer")
-//        api "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
-//        api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
-//
-//    }
-//}
+project(":examples") {
+    apply plugin: "java-library"
+
+    dependencies {
+        implementation project(":injector")
+        api "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
+        api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+
+    }
+}

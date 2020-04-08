@@ -104,7 +104,7 @@ gradle-app.setting
 /build/
 /android/build/
 /injector/build/
-/test/build/
+/examples/build/
 /html/build/
 /ios/build/
 /ios-moe/build/

@@ -1,2 +1,2 @@
-include 'injector'
+include 'injector', 'examples'
 rootProject.name = 'injector'
