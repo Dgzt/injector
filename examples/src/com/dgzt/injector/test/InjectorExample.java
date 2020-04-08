@@ -34,4 +34,10 @@ public class InjectorExample extends Game {
 
         super.render();
     }
+
+    @Override
+    public void dispose() {
+        super.dispose();
+        Injector.dispose();
+    }
 }
