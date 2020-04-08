@@ -1,5 +1,9 @@
 # Injector
 
+[![](https://jitpack.io/v/Dgzt/injector.svg)](https://jitpack.io/#Dgzt/injector)
+
+---
+
 A library for [libgdx](https://libgdx.badlogicgames.com/), an open-source game development application framework written in java.
 
 Injector is a dependency injector what injects objects at runtime, uses reflection. It can create object with its dependencies.
