@@ -10,6 +10,29 @@ Injector is a dependency injector what injects objects at runtime, uses reflecti
 
 ---
 
+## Including in Project
+
+To use this in your gradle project, add the version number and jitpack repository information to your root build.gradle file:
+ 
+```groovy
+allprojects {
+    ext {
+    	...
+        injectorVersion = '1.0.0'
+    }
+    repositories {
+	...
+	maven { url 'https://jitpack.io' }
+    }
+}
+```
+And  in your core project add the dependency:
+```groovy
+dependencies {
+    implementation "com.github.Dgzt:injector:$injectorVersion"
+}
+```
+
 ## Usage
 
 Inject object:
