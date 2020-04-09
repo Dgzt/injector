@@ -1,6 +1,7 @@
 # Injector
 
 [![](https://jitpack.io/v/Dgzt/injector.svg)](https://jitpack.io/#Dgzt/injector)
+[![license](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Dgzt/injector/blob/master/LICENSE)
 
 ---
 
